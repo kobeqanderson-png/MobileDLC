@@ -1,0 +1,43 @@
+# Dependencies and build output
+node_modules/
+dist/
+build/
+__pycache__/
+*.py[cod]
+
+# Local app/runtime state
+.wrangler/
+imports/playwright-state/
+independent_labeler/.wrangler/
+independent_labeler/imports/playwright-state/
+mobile_dlc_labeler/full_project_state/
+mobile_dlc_labeler/real_pilot/
+hosted_labeler/
+
+# Secrets and local access tokens
+*.env
+.env*
+access-code.txt
+access-token*.txt
+mobile_dlc_labeler/full_project_state/access-token*.txt
+independent_labeler/imports/access-code.txt
+
+# Large training, video, and DLC artifacts
+*.mp4
+*.avi
+*.mov
+*.szv
+*.zip
+*.zip.part*
+*.h5
+*.pickle
+*.pt
+*.pth
+*.ckpt
+*.npy
+*.npz
+
+# Local OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/

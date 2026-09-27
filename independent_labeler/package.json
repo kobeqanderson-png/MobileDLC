@@ -1,0 +1,19 @@
+{
+  "name": "mobile-dlc-independent-labeler",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "test:browser": "node tests/browser-smoke.mjs",
+    "dev": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "migration": "node prepare_migration.mjs",
+    "qr": "node make_qr.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.63.0",
+    "qrcode": "^1.5.4",
+    "wrangler": "^4.0.0"
+  }
+}

@@ -1,0 +1,1 @@
+Images extracted from a labeled video. Existing pose dots are baked into the pixels. Never export annotations from these images as scientific ground truth.

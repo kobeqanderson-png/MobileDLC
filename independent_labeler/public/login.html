@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mobile DLC Labeler | Access</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #223238; background: #edf1f1; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100dvh; display: grid; place-items: center; padding: 20px; }
+    main { width: min(100%, 370px); padding: 26px; background: #fff; border: 1px solid #d6e0e1; border-radius: 7px; }
+    .mark { display: grid; place-items: center; width: 40px; height: 40px; margin-bottom: 22px; border-radius: 7px; background: #176b60; color: #fff; font-size: 23px; font-weight: 800; }
+    h1 { margin: 0 0 24px; font-size: 22px; line-height: 1.2; }
+    label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 700; }
+    input { width: 100%; height: 45px; padding: 0 12px; border: 1px solid #adbdc0; border-radius: 5px; font: inherit; font-size: 16px; letter-spacing: 0; }
+    input:focus-visible, button:focus-visible { outline: 2px solid #087f70; outline-offset: 2px; }
+    button { width: 100%; min-height: 45px; margin-top: 14px; border: 0; border-radius: 5px; background: #176b60; color: #fff; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+    button:disabled { opacity: .6; cursor: default; }
+    #error { min-height: 20px; margin: 12px 0 0; color: #a73c32; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="mark" aria-hidden="true">P</div>
+    <h1>Mobile DLC Labeler</h1>
+    <form id="access-form">
+      <label for="access-code">Access code</label>
+      <input id="access-code" name="code" type="password" autocomplete="off" autocapitalize="characters" spellcheck="false" required autofocus>
+      <button type="submit">Continue</button>
+      <p id="error" role="alert" aria-live="polite"></p>
+    </form>
+  </main>
+  <script>
+    const form = document.getElementById('access-form');
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      const button = form.querySelector('button');
+      button.disabled = true;
+      document.getElementById('error').textContent = '';
+      try {
+        const response = await fetch('/api/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ code: form.elements.code.value.trim() }) });
+        if (!response.ok) throw Error((await response.json()).error || 'Could not sign in');
+        location.replace('/');
+      } catch (error) {
+        document.getElementById('error').textContent = error.message;
+        button.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

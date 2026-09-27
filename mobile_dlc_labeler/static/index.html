@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <title>Mobile DLC Labeler</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">P</span>
+      <div><strong>Pose editor</strong><small id="subtitle">Loading...</small></div>
+    </div>
+    <span id="status" role="status" aria-live="polite">Connecting</span>
+  </header>
+  <main class="workspace">
+    <section class="editor" aria-label="Frame editor">
+      <div class="framebar">
+        <div><span class="eyebrow">CURRENT FRAME</span><h1 id="frame-title">Loading...</h1></div>
+        <div class="frame-meta"><select id="folder-select" aria-label="Test folder"></select><span id="counter">- / -</span></div>
+      </div>
+      <section id="viewer" aria-label="Annotation image">
+        <svg id="canvas" xmlns="http://www.w3.org/2000/svg"><image id="photo" x="0" y="0"/><g id="dots"></g></svg>
+        <div id="active-chip" aria-live="polite"></div>
+        <div class="view-tools" aria-label="Image zoom">
+          <button id="zoom-out" title="Zoom out" aria-label="Zoom out">−</button>
+          <button id="reset" title="Fit image" aria-label="Fit image">Fit</button>
+          <button id="zoom-in" title="Zoom in" aria-label="Zoom in">+</button>
+        </div>
+      </section>
+      <div class="control-dock">
+        <nav class="navigation" aria-label="Frames">
+          <button id="previous" title="Previous frame" aria-label="Previous frame" disabled>‹</button>
+          <input id="frame-range" type="range" min="1" max="1" value="1" aria-label="Frame" disabled>
+          <button id="next" title="Next frame" aria-label="Next frame" disabled>›</button>
+        </nav>
+        <div class="command-row">
+          <div class="toolbar" role="group" aria-label="Editing mode">
+            <button class="mode active" data-mode="select" aria-pressed="true">Move</button>
+            <button class="mode" data-mode="add" aria-pressed="false">Place</button>
+            <button class="mode" data-mode="multi" aria-pressed="false">Multi-select</button>
+          </div>
+          <div class="tools" role="group" aria-label="Edit history">
+            <button id="undo" title="Undo" aria-label="Undo">↶</button>
+            <button id="redo" title="Redo" aria-label="Redo">↷</button>
+            <button id="delete" title="Delete selected points" aria-label="Delete selected points">Delete</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <aside class="inspector" aria-label="Labeling controls">
+      <section class="suite" aria-label="Labeling progress">
+        <div class="section-head"><div><span class="eyebrow">WORKLIST</span><h2>Labeling progress</h2></div><strong id="completion">- / -</strong></div>
+        <div class="progress-track" role="progressbar" aria-label="Labels placed on this frame" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progress-fill"></span></div>
+        <div class="animal-row"><span>Animal</span><strong id="animal">Loading...</strong></div>
+        <div class="suite-actions"><button id="next-missing">Next missing point</button><button id="next-incomplete">Next incomplete frame</button></div>
+      </section>
+      <section class="panel" aria-label="Body points">
+        <div class="panel-head"><div><span class="eyebrow">POINTS</span><h2>Body points</h2></div><span id="selected">Select a point</span></div>
+        <div id="parts"></div>
+      </section>
+      <details class="appearance">
+        <summary>Marker display <span id="size-value">7 px</span></summary>
+        <div class="display-fields">
+          <label>Size <input id="size" type="range" min="3" max="18" value="7"></label>
+          <label>Shape <select id="shape"><option value="circle">Circle</option><option value="square">Square</option><option value="diamond">Diamond</option></select></label>
+          <label>Color <input id="color" type="color" value="#45d4b0"></label>
+        </div>
+      </details>
+      <section class="footer"><button id="export">Export DLC H5 + CSV</button><p id="note"></p></section>
+    </aside>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

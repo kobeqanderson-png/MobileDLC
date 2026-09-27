@@ -1,0 +1,7 @@
+dist/
+node_modules/
+imports/
+.dev.vars
+.wrangler/
+.wrangler-config/
+*.tgz
