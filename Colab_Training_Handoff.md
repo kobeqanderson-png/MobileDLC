@@ -18,7 +18,9 @@ Use `Colab_Preliminary_Analysis.ipynb` for the first conservative analysis pass.
 
 A fresh live label export was pulled on September 27, 2026 after the work-session labels were added. Compared with the September 24 frozen training export, the sp1DLC set increased from 5,128 to 6,902 placed seven-point labels and from 608 to 883 complete seven-point frames. The converted DLC labels were written locally under `independent_labeler/imports/work-labels-dlc-20260927-165542/`.
 
-Use the new Drive notebook `Colab_Train_Work_Labels.ipynb` in the Colab export folder. Select a GPU runtime and run the cells in order. It reassembles `sp1DLC_colab_ready_worklabels_20260927.zip.part01` through `.part09`, validates the fresh snapshot, and starts a new `mobile_worklabels_<timestamp>` run under `MyDrive/sp1DLC/Colab_Training_Runs/`. This does not overwrite the baseline `mobile_fast_20260925_040943` run.
+The expanded-label model finished training in `MyDrive/sp1DLC/Colab_Training_Runs/mobile_worklabels_20260927_210240/`. It kept `snapshot-best-110.pt` as the best checkpoint. Evaluation finished with test RMSE `2.06 px` and test mAP `89.39` on this run's split. This is slightly below the baseline's `91.46` test mAP, so treat it as a visual/dropout candidate rather than an automatic replacement until labeled videos are compared on the problem clips. The baseline `mobile_fast_20260925_040943` run remains untouched.
+
+Next step: run video inference and seven-point rendering from `mobile_worklabels_20260927_210240`, then compare Test 30 and other dropout clips against the baseline `_p20`/`_p30` renders.
 
 ## Baseline model
 
