@@ -14,6 +14,12 @@ The notebook and original video archive layout were checked locally, but the sev
 
 Use `Colab_Preliminary_Analysis.py` for the first conservative analysis pass. It reads the existing prediction H5 files from the completed run, keeps the seven focus bodyparts, and writes outputs under `MyDrive/sp1DLC/Colab_Training_Runs/mobile_fast_20260925_040943/Preliminary_Analysis/<timestamp>/`. It produces QC tables, visibility heatmaps, body-center tracks, pixel-distance summaries, and a short Markdown report. Treat these as preliminary pixel-space movement and tracking-quality summaries only; do not make arena-zone or absolute-distance claims until calibration is added.
 
+## Expanded-label retraining
+
+A fresh live label export was pulled on September 27, 2026 after the work-session labels were added. Compared with the September 24 frozen training export, the sp1DLC set increased from 5,128 to 6,902 placed seven-point labels and from 608 to 883 complete seven-point frames. The converted DLC labels were written locally under `independent_labeler/imports/work-labels-dlc-20260927-165542/`.
+
+Use the new Drive notebook `Colab_Train_Work_Labels.ipynb` in the Colab export folder. Select a GPU runtime and run the cells in order. It reassembles `sp1DLC_colab_ready_worklabels_20260927.zip.part01` through `.part09`, validates the fresh snapshot, and starts a new `mobile_worklabels_<timestamp>` run under `MyDrive/sp1DLC/Colab_Training_Runs/`. This does not overwrite the baseline `mobile_fast_20260925_040943` run.
+
 ## Baseline model
 
 - Drive run: [mobile_fast_20260925_040943](https://drive.google.com/drive/folders/1Na497DJV6WQPQLKQ2e5T89n3xvfH8xf1).
