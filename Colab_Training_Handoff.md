@@ -24,6 +24,10 @@ Next step: run `Colab_Worklabels_Videos.ipynb` to create prediction H5 files and
 
 After the videos/predictions exist, run `Colab_Worklabels_Tracking_Behavior_Analysis.ipynb`. It writes tracking QC and preliminary behavior outputs under `MyDrive/sp1DLC/Colab_Training_Runs/mobile_worklabels_20260927_210240/Tracking_Behavior_Analysis/<timestamp>/`. The behavior layer is locomotor/activity behavior only: total body-center distance, active/rest frame percentages, movement bouts, and per-video trajectory pages. It does not make arena-zone or calibrated-distance claims yet.
 
+For thesis-specific behavior, use `Colab_Thesis_Checking_Behavior_Analysis.ipynb` plus `Thesis_Behavior_Codebook_Draft.md`. This notebook targets the endpoints in the thesis scope: directed returns after first departure, latency to departure, return latency, place dwell, return path efficiency, wall-directed checking/thigmotaxis, and lurching candidates. It requires frozen arena and learned-place zone definitions before the place-directed checking endpoints are valid.
+
+Use `Thesis_Data_Analysis_Roadmap.md` to keep the analysis defensible. It separates core thesis analyses, which can support claims, from advanced discovery analyses, which should be presented as exploratory until validated. The core lane is tracking QC, locomotor/state controls, place-directed checking, wall-directed checking/thigmotaxis, and individual-differences modeling. The advanced lane is unsupervised motifs, behavioral state sequences, checking microstructure, lurching candidates, and later SiMBA classifiers.
+
 ## Baseline model
 
 - Drive run: [mobile_fast_20260925_040943](https://drive.google.com/drive/folders/1Na497DJV6WQPQLKQ2e5T89n3xvfH8xf1).
