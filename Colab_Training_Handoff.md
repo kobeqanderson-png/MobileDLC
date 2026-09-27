@@ -12,7 +12,7 @@ The notebook and original video archive layout were checked locally, but the sev
 
 ## Preliminary analysis
 
-Use `Colab_Preliminary_Analysis.py` for the first conservative analysis pass. It reads the existing prediction H5 files from the completed run, keeps the seven focus bodyparts, and writes outputs under `MyDrive/sp1DLC/Colab_Training_Runs/mobile_fast_20260925_040943/Preliminary_Analysis/<timestamp>/`. It produces QC tables, visibility heatmaps, body-center tracks, pixel-distance summaries, and a short Markdown report. Treat these as preliminary pixel-space movement and tracking-quality summaries only; do not make arena-zone or absolute-distance claims until calibration is added.
+Use `Colab_Preliminary_Analysis.ipynb` for the first conservative analysis pass. It reads the existing prediction H5 files from the completed run, keeps the seven focus bodyparts, and writes outputs under `MyDrive/sp1DLC/Colab_Training_Runs/mobile_fast_20260925_040943/Preliminary_Analysis/<timestamp>/`. It produces QC tables, visibility heatmaps, body-center tracks, pixel-distance summaries, and a short Markdown report. Treat these as preliminary pixel-space movement and tracking-quality summaries only; do not make arena-zone or absolute-distance claims until calibration is added.
 
 ## Expanded-label retraining
 
