@@ -20,7 +20,9 @@ A fresh live label export was pulled on September 27, 2026 after the work-sessio
 
 The expanded-label model finished training in `MyDrive/sp1DLC/Colab_Training_Runs/mobile_worklabels_20260927_210240/`. It kept `snapshot-best-110.pt` as the best checkpoint. Evaluation finished with test RMSE `2.06 px` and test mAP `89.39` on this run's split. This is slightly below the baseline's `91.46` test mAP, so treat it as a visual/dropout candidate rather than an automatic replacement until labeled videos are compared on the problem clips. The baseline `mobile_fast_20260925_040943` run remains untouched.
 
-Next step: run video inference and seven-point rendering from `mobile_worklabels_20260927_210240`, then compare Test 30 and other dropout clips against the baseline `_p20`/`_p30` renders.
+Next step: run `Colab_Worklabels_Videos.ipynb` to create prediction H5 files and seven-point `_p20_labeled.mp4` videos from `mobile_worklabels_20260927_210240`. It writes videos to `MyDrive/sp1DLC/Colab_Training_Runs/mobile_worklabels_20260927_210240/Seven_Point_Videos_p20/`.
+
+After the videos/predictions exist, run `Colab_Worklabels_Tracking_Behavior_Analysis.ipynb`. It writes tracking QC and preliminary behavior outputs under `MyDrive/sp1DLC/Colab_Training_Runs/mobile_worklabels_20260927_210240/Tracking_Behavior_Analysis/<timestamp>/`. The behavior layer is locomotor/activity behavior only: total body-center distance, active/rest frame percentages, movement bouts, and per-video trajectory pages. It does not make arena-zone or calibrated-distance claims yet.
 
 ## Baseline model
 
